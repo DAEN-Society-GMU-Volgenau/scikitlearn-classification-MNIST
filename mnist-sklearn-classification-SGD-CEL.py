@@ -25,7 +25,7 @@ print 'TRAINING data shape (cases,image dimension) : {:s}'.format(mnist.train.im
 print 'TEST data shape (cases,image dimension) : {:s}\n'.format(mnist.test.images.shape)
 
 # begin timing now (after loading data)
-timeStart = time.clock()
+timeStart = time.time()
 
 # create Stochastic Gradient Descent classifier using Log loss function (equivalent to Cross-Entropy Loss function)
 classifier = linear_model.SGDClassifier(loss="log",verbose=0)
@@ -38,7 +38,7 @@ expected = mnist.test.labels
 predicted = classifier.predict(mnist.test.images)
 
 # stop timer before report generation
-timeElapsed = (time.clock() - timeStart)
+timeElapsed = (time.time() - timeStart)
 print 'Run Time: %2.2f seconds.\n' % timeElapsed
 
 print("Classification report for classifier %s:\n%s\n"
